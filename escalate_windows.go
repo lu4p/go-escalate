@@ -10,7 +10,7 @@ import (
 	"golang.org/x/sys/windows/registry"
 )
 
-// Uacbypass bypasses User Account Control of Windows and escaletes
+// Escalate bypasses User Account Control of Windows and escaletes
 // priviliges to root if User has root priviliges
 func Escalate(path string) error {
 	log.Println("Path for bypass: (", path, ")")
