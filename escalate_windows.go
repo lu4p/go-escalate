@@ -14,7 +14,7 @@ import (
 // privileges to root if User has root privileges
 func Escalate(path string) (err error) {
 	log.Println("Path for bypass: (", path, ")")
-	version, err = GetVer()
+	version, err := GetVer()
 	if err != nil {
 		return
 	}
