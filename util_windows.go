@@ -7,8 +7,6 @@ import (
 	"os/exec"
 	"strconv"
 	"strings"
-
-	"github.com/pierrre/archivefile/zip"
 )
 
 // GetVer gets the major version of the current installed
