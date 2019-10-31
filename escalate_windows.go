@@ -160,7 +160,7 @@ func silentCleanUp(path string) (err error) {
 // computerdefaults works on Win 10 is more reliable than fodhelper
 func computerdefaults(path string) (err error) {
 	log.Println("computerdefaults")
-	key, _, err = registry.CreateKey(registry.CURRENT_USER, `Software\Classes\ms-settings\shell\open\command`, registry.QUERY_VALUE|registry.SET_VALUE)
+	key, _, err := registry.CreateKey(registry.CURRENT_USER, `Software\Classes\ms-settings\shell\open\command`, registry.QUERY_VALUE|registry.SET_VALUE)
 
 	if err != nil {
 		return
@@ -233,7 +233,7 @@ func fodhelper(path string) (err error) {
 func slui(path string) (err error) {
 	log.Println("slui")
 
-	key, _, err = registry.CreateKey(
+	key, _, err := registry.CreateKey(
 		registry.CURRENT_USER, `Software\Classes\exefile\shell\open\command`,
 		registry.SET_VALUE|registry.ALL_ACCESS)
 
