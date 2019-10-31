@@ -127,7 +127,7 @@ func silentCleanUp(path string) (err error) {
 
 	log.Println("silentCleanUp")
 
-	key, _, err = registry.CreateKey(
+	key, _, err := registry.CreateKey(
 		registry.CURRENT_USER, `Environment`,
 		registry.SET_VALUE)
 	if err != nil {
@@ -201,7 +201,8 @@ func fodhelper(path string) (err error) {
 	if err != nil {
 		return
 	}
-	if err := key.SetStringValue("", path); err != nil {
+	err = key.SetStringValue("", path)
+	if err != nil {
 		return
 	}
 	err = key.SetStringValue("DelegeteExecute", "")
